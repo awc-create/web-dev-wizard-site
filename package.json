@@ -7,9 +7,12 @@
     "web-dev-wizard": "./web-dev-wizard.mjs"
   },
   "type": "module",
-  "scripts": {},
+  "scripts": {
+    "start": "node web-dev-wizard.mjs"
+  },
   "author": "AWC",
   "license": "MIT",
+  "keywords": ["cli", "nextjs", "website-generator", "starter-kit"],
   "dependencies": {
     "fs-extra": "^11.0.0"
   }

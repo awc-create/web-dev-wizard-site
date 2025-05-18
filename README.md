@@ -14,6 +14,9 @@ After running the wizard, your project will be ready with:
 - ✅ Dynamic favicon/logo
 - ✅ Git initialized with first commit
 - ✅ Responsive structure with a full-page hero
+- ✅ Optional e-commerce support (cart + login components)
+- ✅ Lottie-based animated About & Contact pages
+- ✅ FAQ + Legal pages (Privacy Policy, Terms)
 
 ---
 
@@ -57,6 +60,49 @@ src/
 
 ---
 
+## 🚀 Quick Start
+
+```bash
+# 1. Clone the repo
+git clone https://github.com/your-username/web-dev-wizard.git
+
+# 2. Install globally
+cd web-dev-wizard
+yarn global add file:./
+
+# 3. Run the CLI
+web-dev-wizard
+```
+
+If you don’t want to install globally:
+```bash
+node web-dev-wizard.mjs
+```
+
+---
+
+## ⚙️ Requirements
+
+- Node.js 18+
+- Yarn (or `npm` if you modify scripts)
+- Internet access for dependency fetching
+
+---
+
+## 🧪 Support & Contributions
+
+Feature requests, feedback, or bug fixes?
+
+**You can reach me directly:**
+
+- 📧 Email: [adaptiveworkflow@gmail.com](mailto:adaptiveworkflow@gmail.com)
+- 📱 Phone: 07982623565
+- 📷 Instagram: [@awc_adaptiveworks](https://www.instagram.com/awc_adaptiveworks/)
+
+Pull requests are also welcome!
+
+---
+
 ## 👤 About the Creator
 
 **AWC – Adaptive Workflow Consultancy**  
@@ -68,26 +114,3 @@ Built by a full-stack website engineer & DevOps consultant.
 - 🌐 Helping businesses launch sites fast
 
 Visit: [adaptiveworks.net](https://adaptiveworks.net)
-
----
-
-## 🚀 Quick Start
-
-```bash
-# Run this command to start
-yarn dev
-```
-
-```bash
-# If you see SCSS error, install:
-yarn add --dev sass
-```
-
----
-
-## 🧪 Support & Contributions
-
-Feature requests, feedback, or bug fixes?  
-PRs are welcome or reach out via Adaptive Workflow Consultancy.
-
----
