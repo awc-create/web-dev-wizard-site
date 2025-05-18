@@ -1,0 +1,16 @@
+{
+  "name": "web-dev-wizard",
+  "version": "1.0.0",
+  "description": "A CLI to scaffold static and e-commerce ready Next.js websites.",
+  "main": "web-dev-wizard.mjs",
+  "bin": {
+    "web-dev-wizard": "./web-dev-wizard.mjs"
+  },
+  "type": "module",
+  "scripts": {},
+  "author": "AWC",
+  "license": "MIT",
+  "dependencies": {
+    "fs-extra": "^11.0.0"
+  }
+}
