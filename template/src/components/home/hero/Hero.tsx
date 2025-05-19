@@ -20,12 +20,13 @@ export default function Hero() {
 
       <header className={styles.hero} role="banner" aria-label="Homepage Hero">
         <div className={styles.imageWrapper}>
-          <Image
-            src="/assets/hero.png"
-            alt="Hero background"
-            fill
-            priority
-          />
+        <Image
+          src="/assets/hero.png"
+          alt="Hero background"
+          fill
+          priority
+          sizes="100vw"
+        />
         </div>
 
         <div className={styles.overlay} />

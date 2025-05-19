@@ -14,10 +14,8 @@ export default function Navbar({ isEcommerce = false }: { isEcommerce?: boolean 
   const [LoginButton, setLoginButton] = useState<React.FC | null>(null);
   const pathname = usePathname();
 
-  const toggleMenu = () => setMenuOpen((prev) => !prev);
+  const toggleMenu = () => setMenuOpen(prev => !prev);
   const closeMenu = () => setMenuOpen(false);
-
-  const navItems = NAV_LINKS;
 
   useEffect(() => {
     const loadIcons = async () => {
@@ -27,8 +25,8 @@ export default function Navbar({ isEcommerce = false }: { isEcommerce?: boolean 
           const login = await import("@/components/ecommerce/login/LoginButton").then(mod => mod.default);
           setCartIcon(() => cart);
           setLoginButton(() => login);
-        } catch (err) {
-          console.warn("⚠️ E-commerce components not found. Skipping...");
+        } catch {
+          console.warn("⚠️ E-commerce components not found.");
         }
       }
     };
@@ -36,30 +34,24 @@ export default function Navbar({ isEcommerce = false }: { isEcommerce?: boolean 
     loadIcons();
   }, [isEcommerce]);
 
+  const isLinkActive = (href: string) => pathname === href || pathname.startsWith(href + "/");
+
   return (
     <nav className={styles.navbar}>
       <div className={styles.inner}>
         <Link href="/" className={styles.logo} onClick={closeMenu}>
-          <Image
-            src="/assets/navbar.png"
-            alt="Logo"
-            width={350}
-            height={350}
-            priority
-          />
+          <Image src="/assets/footer-light.png" alt="Logo" width={50} height={50} priority />
         </Link>
 
-        {/* Desktop Nav */}
         <div className={styles.desktopLinks}>
-          {navItems.map(({ slug, label }) => {
+          {NAV_LINKS.map(({ slug, label }) => {
             const href = `/${slug}`;
-            const isActive = pathname === href;
             return (
               <Link
                 key={slug}
                 href={href}
                 onClick={closeMenu}
-                className={isActive ? styles.active : ""}
+                className={isLinkActive(href) ? styles.active : ""}
               >
                 {label}
               </Link>
@@ -67,7 +59,6 @@ export default function Navbar({ isEcommerce = false }: { isEcommerce?: boolean 
           })}
         </div>
 
-        {/* Ecommerce Icons */}
         {isEcommerce && CartIcon && LoginButton && (
           <div className={styles.actions}>
             <CartIcon />
@@ -75,27 +66,24 @@ export default function Navbar({ isEcommerce = false }: { isEcommerce?: boolean 
           </div>
         )}
 
-        {/* Mobile Toggle */}
         <button
           className={styles.hamburger}
           onClick={toggleMenu}
           aria-label="Toggle menu"
         >
-          <Icon icon={menuOpen ? "mdi:close" : "mdi:menu"} width="28" height="28" />
+          <Icon icon={menuOpen ? "mdi:close" : "mdi:menu"} />
         </button>
       </div>
 
-      {/* Mobile Menu */}
       <div className={`${styles.mobileMenu} ${menuOpen ? styles.open : ""}`}>
-        {navItems.map(({ slug, label }) => {
+        {NAV_LINKS.map(({ slug, label }) => {
           const href = `/${slug}`;
-          const isActive = pathname === href;
           return (
             <Link
               key={slug}
               href={href}
               onClick={closeMenu}
-              className={isActive ? styles.active : ""}
+              className={isLinkActive(href) ? styles.active : ""}
             >
               {label}
             </Link>

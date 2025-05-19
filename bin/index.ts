@@ -86,7 +86,7 @@ function toPascalCase(str: string) {
   fs.copyFileSync(path.join(baseDir, "public/favicon.ico"), path.join(projectPath, "public/favicon.ico"));
 
   const extraPages = additionalNav.split(",").map(p => p.trim().toLowerCase()).filter(Boolean);
-  const navSet = new Set(["", ...defaultNav, ...extraPages]);
+  const navOrder = ["", "about", "contact", ...extraPages];
 
   for (const page of extraPages) {
     const isNumeric = /^[0-9]/.test(page);
@@ -125,7 +125,7 @@ function toPascalCase(str: string) {
 
   const configDir = path.join(projectPath, "src/config");
   fs.mkdirSync(configDir, { recursive: true });
-  const configLines = [...navSet].sort().map(slug => {
+  const configLines = navOrder.map(slug => {
     const label = slug === "" ? "Home" : toPascalCase(slug).replace(/([a-z])([A-Z])/g, "$1 $2");
     return `  { slug: "${slug}", label: "${label}" },`;
   });
