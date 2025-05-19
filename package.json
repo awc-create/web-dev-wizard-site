@@ -2,18 +2,35 @@
   "name": "web-dev-wizard",
   "version": "1.0.0",
   "description": "A CLI to scaffold static and e-commerce ready Next.js websites.",
-  "main": "web-dev-wizard.mjs",
   "bin": {
-    "web-dev-wizard": "./web-dev-wizard.mjs"
+    "web-dev-wizard": "./dist/index.js"
   },
-  "type": "module",
   "scripts": {
-    "start": "node web-dev-wizard.mjs"
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "ts-node bin/index.ts"
   },
+  "keywords": [
+    "cli",
+    "nextjs",
+    "website-generator",
+    "typescript",
+    "starter-kit"
+  ],
+  "files": [
+    "dist",
+    "template"
+  ],
+  "type": "module",
   "author": "AWC",
   "license": "MIT",
-  "keywords": ["cli", "nextjs", "website-generator", "starter-kit"],
   "dependencies": {
     "fs-extra": "^11.0.0"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^22.15.19",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
   }
 }

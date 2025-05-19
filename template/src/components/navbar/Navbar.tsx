@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Icon } from "@iconify/react";
@@ -8,12 +8,10 @@ import { usePathname } from "next/navigation";
 import styles from "./Navbar.module.scss";
 import { NAV_LINKS } from "@/config/menu.config";
 
-// Lazy load only in ecommerce mode
-let CartIcon: React.FC | null = null;
-let LoginButton: React.FC | null = null;
-
 export default function Navbar({ isEcommerce = false }: { isEcommerce?: boolean }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [CartIcon, setCartIcon] = useState<React.FC | null>(null);
+  const [LoginButton, setLoginButton] = useState<React.FC | null>(null);
   const pathname = usePathname();
 
   const toggleMenu = () => setMenuOpen((prev) => !prev);
@@ -21,14 +19,22 @@ export default function Navbar({ isEcommerce = false }: { isEcommerce?: boolean 
 
   const navItems = NAV_LINKS;
 
-  if (isEcommerce) {
-    try {
-      CartIcon = require("@/components/ecommerce/basket/CartIcon").default;
-      LoginButton = require("@/components/ecommerce/login/LoginButton").default;
-    } catch {
-      console.warn("⚠️ E-commerce components not found.");
-    }
-  }
+  useEffect(() => {
+    const loadIcons = async () => {
+      if (isEcommerce && typeof window !== "undefined") {
+        try {
+          const cart = await import("@/components/ecommerce/basket/CartIcon").then(mod => mod.default);
+          const login = await import("@/components/ecommerce/login/LoginButton").then(mod => mod.default);
+          setCartIcon(() => cart);
+          setLoginButton(() => login);
+        } catch (err) {
+          console.warn("⚠️ E-commerce components not found. Skipping...");
+        }
+      }
+    };
+
+    loadIcons();
+  }, [isEcommerce]);
 
   return (
     <nav className={styles.navbar}>
@@ -61,7 +67,7 @@ export default function Navbar({ isEcommerce = false }: { isEcommerce?: boolean 
           })}
         </div>
 
-        {/* Ecommerce Actions */}
+        {/* Ecommerce Icons */}
         {isEcommerce && CartIcon && LoginButton && (
           <div className={styles.actions}>
             <CartIcon />

@@ -7,15 +7,27 @@ logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+*.tsbuildinfo
 
 # Build output
 .next/
+.next/cache/
 out/
 dist/
+.cache/
+
+# Scaffold/Temp folders
+.scaffold/
+temp/
+tmp/
 
 # System files
 .DS_Store
 Thumbs.db
+*.swp
+*.swo
+*.bak
+*.orig
 
 # Environment files
 .env
@@ -25,10 +37,6 @@ Thumbs.db
 # Editor folders
 .vscode/
 .idea/
-
-# OS-specific
-*.swp
-*.swo
 
 # Yarn
 yarn.lock

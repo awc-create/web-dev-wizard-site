@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description: "Generated with Web Dev Wizard",
 };
 
-const isEcommerce = true;
+const isEcommerce = process.env.NEXT_PUBLIC_SITE_MODE === "ecommerce";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

@@ -23,8 +23,7 @@ export default function Hero() {
           <Image
             src="/assets/hero.png"
             alt="Hero background"
-            layout="fill"
-            objectFit="cover"
+            fill
             priority
           />
         </div>
