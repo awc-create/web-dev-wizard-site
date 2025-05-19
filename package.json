@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "description": "A CLI to scaffold static and e-commerce ready Next.js websites.",
   "bin": {
-    "web-dev-wizard": "./dist/index.js"
+    "web-dev-wizard": "dist/index.js"
   },
   "scripts": {
     "build": "tsc",
