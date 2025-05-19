@@ -1,6 +1,6 @@
 # Web Dev Wizard CLI 🧙‍♂️
 
-Welcome to **Web Dev Wizard**, a CLI tool that scaffolds fully styled and functional Next.js websites—ready to launch.
+Welcome to **Web Dev Wizard**, a TypeScript-powered CLI tool that scaffolds fully styled and functional Next.js websites — ready to launch.
 
 ---
 
@@ -23,7 +23,8 @@ After running the wizard, your project will be ready with:
 ## 🏗️ Folder Structure
 
 ### Static Site
-```
+
+\`\`\`
 src/
 ├── app/
 │   ├── page.tsx              → Homepage
@@ -41,10 +42,11 @@ public/
 ├── assets/                   → Logo, icons, hero image
 ├── favicon.ico
 ├── sitemap.xml
-```
+\`\`\`
 
 ### E-commerce Additions
-```
+
+\`\`\`
 src/
 ├── app/
 │   ├── login/                → Login page
@@ -56,13 +58,13 @@ src/
 │   └── basket/
 │       ├── Basket.tsx
 │       └── BasketButton.tsx
-```
+\`\`\`
 
 ---
 
 ## 🚀 Quick Start
 
-```bash
+\`\`\`bash
 # 1. Clone the repo
 git clone https://github.com/your-username/web-dev-wizard.git
 
@@ -72,34 +74,39 @@ yarn global add file:./
 
 # 3. Run the CLI
 web-dev-wizard
-```
+\`\`\`
 
-If you don’t want to install globally:
-```bash
-node web-dev-wizard.mjs
-```
+If you prefer running without global install:
+\`\`\`bash
+ts-node src/index.ts
+\`\`\`
+
+> Or compile the project with \`tsc\` and run:
+\`\`\`bash
+node dist/index.js
+\`\`\`
 
 ---
 
 ## ⚙️ Requirements
 
 - Node.js 18+
-- Yarn (or `npm` if you modify scripts)
-- Internet access for dependency fetching
+- Yarn (or npm if modified)
+- TypeScript CLI (\`ts-node\` if running directly from source)
 
 ---
 
 ## 🧪 Support & Contributions
 
-Feature requests, feedback, or bug fixes?
+Have feature requests, feedback, or bugs?
 
-**You can reach me directly:**
+**Reach me directly:**
 
 - 📧 Email: [adaptiveworkflow@gmail.com](mailto:adaptiveworkflow@gmail.com)
 - 📱 Phone: 07982623565
 - 📷 Instagram: [@awc_adaptiveworks](https://www.instagram.com/awc_adaptiveworks/)
 
-Pull requests are also welcome!
+Pull requests are welcome!
 
 ---
 
@@ -110,7 +117,7 @@ Built by a full-stack website engineer & DevOps consultant.
 
 - 🔁 Automated workflows
 - ☁️ AWS/Terraform deployments
-- 💻 Front-end + Backend development
+- 💻 Full-stack development
 - 🌐 Helping businesses launch sites fast
 
 Visit: [adaptiveworks.net](https://adaptiveworks.net)
